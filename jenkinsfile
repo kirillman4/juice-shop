@@ -2,7 +2,7 @@ pipeline {
     environment {
         registry = "1488rsk853"
         imageName = 'testapp'
-        registryCred = "1488rsk853"
+        registryCred = '1488rsk853'
         gitProject = "https://github.com/kirillman4/juice-shop.git"
     }
     agent any
@@ -11,8 +11,8 @@ pipeline {
     }
     stages {
         stage ('preparation') {
-            steps{
-                 deleteDir()
+            steps {
+                deleteDir()
             }
         }
         stage ('get src from git') {
@@ -28,6 +28,7 @@ pipeline {
         stage ('build docker') {
             steps {
                 script {
+                    //pannoi + / + my-juicy-shop = pannoi/my-juicy-shop
                     dockerImage = docker.build("${registry}/${imageName}")
                 }
             }
@@ -35,7 +36,7 @@ pipeline {
         stage ('docker publish') {
             steps {
                 script {
-                    docker.withRegistry("${registry}/${imageName}", "{$registryCred}"){
+                    docker.withRegistry("${registry}/${imageName}", "${registryCred}") {
                         dockerImage.push()
                     }
                 }
