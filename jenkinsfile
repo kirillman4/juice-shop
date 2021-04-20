@@ -1,6 +1,6 @@
 pipeline{
     environment{
-        registry = "1488rsk853"
+        registry = "kirillman4"
         imageName = "testapp"
         registryCred = "1488rsk853"
         gitProject = "https://github.com/kirillman4/juice-shop"
