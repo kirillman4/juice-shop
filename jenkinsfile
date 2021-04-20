@@ -3,7 +3,7 @@ pipeline{
         registry = "kirillman4"
         imageName = "testapp"
         registryCred = "1488rsk853"
-        gitProject = "https://github.com/kirillman4/juice-shop"
+        gitProject = "https://github.com/kirillman4/juice-shop.git"
     }
     agent any
     options{
